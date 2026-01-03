@@ -32,9 +32,9 @@ const SolutionsSection = () => {
             <div className="container relative z-10 mx-auto ">
                 {/* Section Header */}
                 <div className="text-center max-w-2xl mx-auto mb-5 pt-10">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#053131] leading-tight mb-6">
-                        <span className="font-extrabold">Trusted</span> <span className="font-light">Marketing</span> <span className="font-extrabold">Consulting</span><br />
-                        <span className="font-light">agency for business.</span>
+                    <h2 className="text-3xl sm:text-4xl  font-bold text-[#053131] leading-tight mb-6">
+                        <span className="font-bold">Trusted</span> <span className="font-light font-soka">Marketing</span> <span className="font-bold">Consulting</span><br />
+                        <span className="font-light font-soka">agency for business.</span>
                     </h2>
                     <p className="text-gray-400">
                         Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.

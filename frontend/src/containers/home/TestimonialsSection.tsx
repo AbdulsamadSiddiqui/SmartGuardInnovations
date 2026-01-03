@@ -28,9 +28,9 @@ const TestimonialsSection = () => {
         <section className="py-8 sm:py-10 bg-white overflow-hidden">
             <div className="container mx-auto px-4 ">
                 <div className="text-center max-w-2xl mx-auto mb-10">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#053131] leading-tight mb-6 text-center">
-                        <span className="font-extrabold">Trusted</span> <span className="font-light">Marketing</span> <span className="font-extrabold">Consulting</span><br />
-                        <span className="font-light">agency for business.</span>
+                    <h2 className="text-3xl sm:text-4xl  font-bold text-[#053131] leading-tight mb-6 text-center">
+                        <span className="font-bold">Trusted</span> <span className="font-light font-soka">Marketing</span> <span className="font-bold">Consulting</span><br />
+                        <span className="font-light font-soka">agency for business.</span>
                     </h2>
                     <p className="text-gray-400">
                         Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.
