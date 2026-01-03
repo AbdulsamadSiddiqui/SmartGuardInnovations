@@ -33,30 +33,30 @@ const Header = () => {
                         <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#0C6E6D] transition-all duration-300">
                             <FaEnvelope className="h-3.5 w-3.5 text-white" />
                         </div>
-                        <span className="text-[11px] font-semibold tracking-wide">Email: info@domainname.com</span>
+                        <span className="text-[15px] font-semibold tracking-wide">Email: info@domainname.com</span>
                     </div>
 
                     {/* Left: Phone - Visible on mobile when email is hidden */}
                     <div className="flex sm:hidden items-center gap-2.5 group cursor-pointer">
-                         <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#0C6E6D] transition-all duration-300">
+                        <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#0C6E6D] transition-all duration-300">
                             <RiWhatsappFill className="size-5 text-white" />
                         </div>
-                        <span className="text-[10px] font-bold tracking-wide">Contact Us</span>
+                        <span className="text-[14px] font-bold tracking-wide">Contact Us</span>
                     </div>
-                    
+
                     {/* Right: Social & Phone - Hide social on small mobile */}
                     <div className="flex items-center gap-4 sm:gap-8">
                         {/* Social Icons - Hidden on mobile */}
                         <div className="hidden md:flex items-center gap-4">
-                             <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
+                            <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
                                 <FaFacebookF className="h-3.5 w-3.5 text-white" />
-                             </div>
-                             <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
+                            </div>
+                            <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
                                 <FaInstagram className="h-4 w-4 text-white" />
-                             </div>
-                             <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
+                            </div>
+                            <div className="w-8 h-8 flex items-center justify-center hover:bg-[#0C6E6D] rounded-lg transition-all cursor-pointer bg-white/5">
                                 <FaYoutube className="h-4 w-4 text-white" />
-                             </div>
+                            </div>
                         </div>
 
                         {/* Divider - Hidden on mobile */}
@@ -67,13 +67,13 @@ const Header = () => {
                             <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-[#0C6E6D] transition-all duration-300">
                                 <RiWhatsappFill className="size-5 text-white" />
                             </div>
-                            <span className="text-[11px] font-bold tracking-wide">Contact: +123 (456) 789</span>
+                            <span className="text-[14px] font-bold tracking-wide">Contact: +123 (456) 789</span>
                         </div>
 
                         {/* Social Icons for Mobile - Smaller version */}
                         <div className="flex md:hidden items-center gap-3">
-                             <FaFacebookF className="h-4 w-4 text-white/80" />
-                             <FaInstagram className="h-4 w-4 text-white/80" />
+                            <FaFacebookF className="h-4 w-4 text-white/80" />
+                            <FaInstagram className="h-4 w-4 text-white/80" />
                         </div>
                     </div>
                 </div>
@@ -90,9 +90,9 @@ const Header = () => {
                     {/* Desktop Nav */}
                     <nav className="hidden items-center gap-10 lg:flex">
                         {navLinks.map((item) => (
-                            <a 
-                                key={item.name} 
-                                href={item.href} 
+                            <a
+                                key={item.name}
+                                href={item.href}
                                 className="text-[13px] font-black text-[#053131] hover:text-[#0C6E6D] transition-all uppercase tracking-widest relative group"
                             >
                                 {item.name}
@@ -105,9 +105,9 @@ const Header = () => {
                     <button className="hidden rounded-full bg-[#0C6E6D] px-8 py-3.5 text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-[#053131] transition-all duration-300 lg:block shadow-lg active:scale-95">
                         TRUSTED CONSULTING
                     </button>
-                    
+
                     {/* Mobile Menu Toggle */}
-                    <button 
+                    <button
                         className="lg:hidden text-[#053131] p-2 hover:bg-gray-100 rounded-xl transition-all"
                         onClick={() => setIsMenuOpen(true)}
                     >
@@ -118,34 +118,34 @@ const Header = () => {
 
             {/* Mobile Sidebar Menu (Right Side) */}
             <div className={`fixed inset-0 z-[60] lg:hidden transition-all duration-500 ${isMenuOpen ? 'visible' : 'invisible'}`}>
-                <div 
+                <div
                     className={`absolute inset-0 bg-[#053131]/60 backdrop-blur-md transition-opacity duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
                     onClick={() => setIsMenuOpen(false)}
                 ></div>
-                
+
                 <div className={`absolute top-0 right-0 h-full w-[320px] bg-[#053131] shadow-2xl transition-transform duration-500 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                     <div className="p-8 flex flex-col h-full text-white">
                         <div className="flex items-center justify-between mb-16">
                             <div className="text-4xl font-black tracking-tighter text-white">LOGO</div>
-                                <button 
-                                    onClick={() => setIsMenuOpen(false)} 
-                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all"
-                                >
-                                    <RiCloseLine className="w-6 h-6 text-white" />
-                                </button>
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                            >
+                                <RiCloseLine className="w-6 h-6 text-white" />
+                            </button>
                         </div>
 
                         <nav className="flex flex-col gap-6">
                             {navLinks.map((item) => (
-                                    <a 
-                                        key={item.name} 
-                                        href={item.href} 
-                                        className="text-xl font-bold hover:text-[#7AFFC7] transition-all py-3 border-b border-white/5 flex justify-between items-center group" 
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        {item.name}
-                                        <RiArrowRightLine className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                    </a>
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="text-xl font-bold hover:text-[#7AFFC7] transition-all py-3 border-b border-white/5 flex justify-between items-center group"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {item.name}
+                                    <RiArrowRightLine className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                                </a>
                             ))}
                         </nav>
 
@@ -153,7 +153,7 @@ const Header = () => {
                             <button className="w-full bg-[#0C6E6D] text-white py-5 rounded-full font-black uppercase text-xs tracking-[0.2em] shadow-2xl mb-10">
                                 Trusted Consulting
                             </button>
-                            
+
                             <div className="flex justify-center gap-8">
                                 <FaFacebookF className="w-5 h-5 text-white/60 hover:text-white transition-colors cursor-pointer" />
                                 <FaYoutube className="w-6 h-6 text-white/60 hover:text-white transition-colors cursor-pointer" />
