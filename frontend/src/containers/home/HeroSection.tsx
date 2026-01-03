@@ -3,7 +3,7 @@ import bannerBg from '@/assets/images/banner.png';
 
 const HeroSection = () => {
     return (
-        <section className="relative small:mt-0 mt-12  lg:min-h-[120vh] flex items-center overflow-hidden bg-[#053131] pt-24 lg:pt-32">
+        <section className="relative small:mt-0 mt-12  lg:min-h-[100vh] flex items-center overflow-hidden bg-[#053131] pt-24 lg:pt-32">
             {/* Full Background Image */}
             <div className="absolute  z-0 ">
                 <div className="absolute  z-10"></div>
@@ -25,10 +25,10 @@ const HeroSection = () => {
                     </div>
 
                     {/* Heading - text-4xl as requested */}
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] text-white">
-                        <span className="font-extrabold ">Trusted</span> <span className="font-light">Marketing</span><br />
-                        <span className="font-extrabold">Consulting</span> <span className="font-light">Agency</span><br />
-                        <span className="font-light">for Business.</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl  leading-[1.2] text-white">
+                        <span className="font-bold ">Trusted</span> <span className="font-[100] font-soka">Marketing</span><br />
+                        <span className="font-bold ">Consulting</span> <span className="font-[100] font-soka">Agency</span><br />
+                        <span className="font-[100] font-soka ">for Business.</span>
                     </h1>
 
                     {/* Description */}

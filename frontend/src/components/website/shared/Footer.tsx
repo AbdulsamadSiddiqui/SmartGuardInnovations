@@ -12,9 +12,9 @@ const Footer = () => {
 
                     <div className="relative z-10 p-6 sm:p-10">
                         {/* Top: 4 Columns */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20">
                             {/* Brand Column */}
-                            <div className="space-y-8">
+                            <div className="col-span-2 lg:col-span-1 space-y-8">
                                 <div className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-white">LOGO</div>
                                 <p className="text-white/70 leading-relaxed text-sm max-w-xs">
                                     Lorem Ipsum is simply dummy text of the printing text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -45,7 +45,7 @@ const Footer = () => {
                             </div>
 
                             {/* Contact Us */}
-                            <div className="space-y-8">
+                            <div className="col-span-2 lg:col-span-1 space-y-8">
                                 <h4 className="text-2xl font-bold text-white">Contact Us</h4>
                                 <ul className="space-y-6">
                                     <li className="flex items-center gap-4 group cursor-pointer">

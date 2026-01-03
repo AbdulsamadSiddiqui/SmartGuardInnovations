@@ -14,7 +14,7 @@ const AboutSection = () => {
                             <img
                                 src={secImage}
                                 alt="Marketing Consulting"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-90"
                             />
 
                         </div>
@@ -23,9 +23,8 @@ const AboutSection = () => {
                     {/* Right side: Content */}
                     <div className="lg:w-1/2 space-y-8">
                         <div className="space-y-4">
-                            <h2 className="text-4xl lg:text-5xl font-extrabold leading-tight text-[#053131]">
-                                <span className="font-extrabold text-[#053131]">Trusted</span> <span className="font-light">Marketing</span> <span className="font-extrabold text-[#053131]">Consulting</span><br />
-                                <span className="font-light text-[#0C6E6D]">agency for business</span>
+                            <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-[#053131]">
+                                <span className="font-bold text-[#053131]">Trusted</span> <span className="font-light font-soka">Marketing</span> <span className="font-bold text-[#053131]">Consulting</span><br />
                             </h2>
                             <p className="text-gray-500 text-lg leading-relaxed">
                                 Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.
@@ -42,7 +41,7 @@ const AboutSection = () => {
                                         className="size-full p-3 transition-all duration-300 group-hover:invert group-hover:brightness-0"
                                     />                                </div>
                                 <div>
-                                    <h4 className="font-extrabold text-[#053131] uppercase">Trusted Consulting</h4>
+                                    <h4 className="font-bold text-[#053131] uppercase">Trusted Consulting</h4>
                                     <p className="text-sm text-gray-400">Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.</p>
                                 </div>
                             </div>
