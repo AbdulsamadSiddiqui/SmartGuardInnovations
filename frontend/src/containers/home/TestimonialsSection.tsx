@@ -1,6 +1,7 @@
 import circleImg from '@/assets/images/down-circle.png';
 import { FaStar } from 'react-icons/fa6';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
+import { motion } from 'framer-motion';
 
 const testimonials = [
     {
@@ -27,7 +28,13 @@ const TestimonialsSection = () => {
     return (
         <section className="py-8 sm:py-10 bg-white overflow-hidden">
             <div className="container mx-auto px-4 ">
-                <div className="text-center max-w-2xl mx-auto mb-10">
+                <motion.div
+                    initial={{ y: -30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center max-w-2xl mx-auto mb-10"
+                >
                     <h2 className="text-3xl sm:text-4xl  font-bold text-[#053131] leading-tight mb-6 text-center">
                         <span className="font-bold">Trusted</span> <span className="font-light font-soka">Marketing</span> <span className="font-bold">Consulting</span><br />
                         <span className="font-light font-soka">agency for business.</span>
@@ -35,11 +42,18 @@ const TestimonialsSection = () => {
                     <p className="text-gray-400">
                         Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((t, idx) => (
-                        <div key={idx} className="bg-gray-50 rounded-[40px] p-10 space-y-8 relative shadow-sm hover:shadow-xl transition-all group">
+                        <motion.div
+                            key={idx}
+                            initial={{ y: 60, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: false, amount: 0.2 }}
+                            transition={{ duration: 0.7, delay: idx * 0.2, ease: "easeOut" }}
+                            className="bg-gray-50 rounded-[40px] p-10 space-y-8 relative shadow-sm hover:shadow-xl transition-all group"
+                        >
                             {/* Stars */}
                             <div className="flex gap-1 text-yellow-500">
                                 {[...Array(t.rating)].map((_, i) => (
@@ -60,19 +74,25 @@ const TestimonialsSection = () => {
                                     <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">{t.role}</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
                 {/* Slider controls with React Icons */}
-                <div className="flex justify-center gap-4 mt-12">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.6, type: "spring", bounce: 0.4 }}
+                    className="flex justify-center gap-4 mt-12"
+                >
                     <button className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center text-[#053131] hover:bg-[#0C6E6D] hover:text-white hover:border-[#0C6E6D] transition-all group">
                         <RiArrowLeftLine className="text-2xl group-hover:scale-110 transition-transform" />
                     </button>
                     <button className="w-14 h-14 rounded-full bg-[#0C6E6D] flex items-center justify-center text-white shadow-lg hover:bg-[#053131] transition-all group">
                         <RiArrowRightLine className="text-2xl group-hover:scale-110 transition-transform" />
                     </button>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,6 +1,7 @@
 import circleImg from '@/assets/images/circle-img.png';
 import polyBg from '@/assets/images/polygon-swish.png';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const solutions = [
     { id: "01", title: "Create Account" },
@@ -31,7 +32,13 @@ const SolutionsSection = () => {
 
             <div className="container relative z-10 mx-auto ">
                 {/* Section Header */}
-                <div className="text-center max-w-2xl mx-auto mb-5 pt-10">
+                <motion.div
+                    initial={{ y: -30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center max-w-2xl mx-auto mb-5 pt-10"
+                >
                     <h2 className="text-3xl sm:text-4xl  font-bold text-[#053131] leading-tight mb-6">
                         <span className="font-bold">Trusted</span> <span className="font-light font-soka">Marketing</span> <span className="font-bold">Consulting</span><br />
                         <span className="font-light font-soka">agency for business.</span>
@@ -39,7 +46,7 @@ const SolutionsSection = () => {
                     <p className="text-gray-400">
                         Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Timeline Grid */}
                 <div className="relative">
@@ -50,32 +57,56 @@ const SolutionsSection = () => {
                         {solutions.map((item, idx) => (
                             <div key={idx} className="flex flex-col items-center space-y-8">
                                 {/* Circular Image from Assets */}
-                                <div className="w-48 h-48 rounded-full overflow-hidden border-8 border-white shadow-xl bg-[#0C6E6D]/5">
+                                <motion.div
+                                    initial={{ scale: 0, rotate: -180, opacity: 0 }}
+                                    whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.8, delay: idx * 0.15, ease: "easeOut" }}
+                                    className="w-48 h-48 rounded-full overflow-hidden border-8 border-white shadow-xl bg-[#0C6E6D]/5"
+                                >
                                     <img src={circleImg} alt={item.title} className="w-full h-full object-cover" />
-                                </div>
+                                </motion.div>
 
                                 {/* Badge/ID */}
-                                <div className="w-12 h-12 bg-[#053131] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                                <motion.div
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.5, delay: idx * 0.15 + 0.3, type: "spring", bounce: 0.5 }}
+                                    className="w-12 h-12 bg-[#053131] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
+                                >
                                     {item.id}
-                                </div>
+                                </motion.div>
 
                                 {/* Content */}
-                                <div className="text-center space-y-4">
+                                <motion.div
+                                    initial={{ y: 30, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.7, delay: idx * 0.15 + 0.5, ease: "easeOut" }}
+                                    className="text-center space-y-4"
+                                >
                                     <h3 className="text-xl font-bold text-[#053131]">{item.title}</h3>
                                     <p className="text-sm text-gray-400 leading-relaxed">
                                         Experience healthcare you can trust. Our dedicated team provides compassionate, high-quality care.
                                     </p>
-                                </div>
+                                </motion.div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="mt-16 text-center">
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                    className="mt-16 text-center"
+                >
                     <Button className="bg-[#0C6E6D] hover:bg-[#053131] text-white rounded-full px-10 py-7 font-bold">
                         View all Solutions
                     </Button>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
