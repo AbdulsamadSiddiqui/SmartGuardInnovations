@@ -1,61 +1,53 @@
 
-import type { Product } from '@/data/products';
-import { ArrowRight, Star } from 'lucide-react';
+import type { Product } from '@/data/productdata';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
     product: Product;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+    const slug = product.productName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="group bg-[#F0F7F6] rounded-2xl p-4 flex flex-col gap-4 border border-transparent hover:border-[#0C6E6D]/20 transition-all duration-300 shadow-sm"
+            className="group bg-white rounded-3xl p-5 flex flex-col gap-5 border border-[#0C6E6D]/5 hover:border-[#0C6E6D]/20 transition-all duration-500 shadow-sm hover:shadow-2xl hover:-translate-y-2"
         >
-            {/* Image Container */}
-            <div className="relative aspect-square bg-white rounded-xl overflow-hidden flex items-center justify-center p-6">
+            <Link to={`/products/${slug}`} className="relative aspect-square bg-[#F8FBFA] rounded-2xl overflow-hidden flex items-center justify-center p-8 group-hover:bg-white transition-colors duration-500">
                 <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    src={product.images[0]?.src || ''}
+                    alt={product.images[0]?.alt || product.productName}
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-            </div>
+                <div className="absolute inset-0 bg-[#053131]/0 group-hover:bg-[#053131]/5 transition-colors duration-500"></div>
+            </Link>
 
-            {/* Content Container */}
-            <div className="flex flex-col gap-1 px-1">
-                <div className="flex justify-between items-start gap-2">
-                    <h3 className="font-bold text-[#053131] text-lg uppercase tracking-tight leading-tight">
-                        {product.name}
+            <div className="flex flex-col gap-3 flex-grow">
+                <Link to={`/products/${slug}`} className="group/title">
+                    <h3 className="font-semibold text-[#053131] text-lg uppercase tracking-tight leading-tight line-clamp-2 min-h-[48px] group-hover/title:text-[#0C6E6D] transition-colors">
+                        {product.productName}
                     </h3>
-                    <span className="font-black text-[#0C6E6D] text-lg">
-                        ${product.price.toFixed(2)}
-                    </span>
-                </div>
+                </Link>
 
-                <p className="text-[#053131]/60 text-sm font-semibold mb-2">
-                    {product.category}
+                <p className="text-[#053131]/60 text-sm line-clamp-3 font-medium leading-relaxed">
+                    {product.description}
                 </p>
 
-                <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                        <Star
-                            key={i}
-                            size={14}
-                            className={`${i < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
-                        />
-                    ))}
-                </div>
-
-                <div className="flex items-center justify-between mt-auto pt-2 border-t border-[#0C6E6D]/10">
-                    <button className="text-[#0C6E6D] text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                        More Info
-                    </button>
-                    <button className="w-8 h-8 rounded-full bg-white border border-[#0C6E6D]/20 flex items-center justify-center text-[#053131] hover:bg-[#0C6E6D] hover:text-white transition-all">
-                        <ArrowRight size={16} />
-                    </button>
+                <div className="mt-auto pt-5 flex items-center justify-between">
+                    <Link
+                        to={`/products/${slug}`}
+                        className="text-[#0C6E6D] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group/more"
+                    >
+                        Learn More
+                        <div className="w-8 h-8 rounded-full bg-[#0C6E6D]/10 flex items-center justify-center group-hover/more:bg-[#053131] group-hover/more:text-white transition-all duration-300">
+                            <ArrowRight size={14} />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </motion.div>

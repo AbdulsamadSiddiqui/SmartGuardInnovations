@@ -1,6 +1,6 @@
 
 import ProductCard from './ProductCard';
-import { products } from '@/data/products';
+import { products } from '@/data/productdata';
 import { Search } from 'lucide-react';
 import { useMemo } from 'react';
 
@@ -13,8 +13,10 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
 
     const filteredProducts = useMemo(() => {
         return products.filter(product => {
-            const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            const matchesSearch =
+                product.productName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                product.section.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                product.productType.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 product.description.toLowerCase().includes(searchQuery.toLowerCase());
             return matchesSearch;
         });
@@ -25,10 +27,10 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
             {/* Top Bar with Search */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6 bg-white p-6 rounded-3xl shadow-sm border border-[#0C6E6D]/5">
                 <div className="flex flex-col gap-1">
-                    <p className="text-[#053131]/60 font-black uppercase tracking-[0.2em] text-[10px]">
+                    <p className="text-[#053131]/60 font-semibold uppercase tracking-[0.2em] text-[10px]">
                         Smart Guard Gallery
                     </p>
-                    <h2 className="text-[#053131] font-black text-xl uppercase tracking-tight">
+                    <h2 className="text-[#053131] font-semibold text-xl uppercase tracking-tight">
                         Results ({filteredProducts.length})
                     </h2>
                 </div>
@@ -40,7 +42,7 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
                         placeholder="Search products..."
                         value={searchQuery}
                         onChange={(e) => onSearchChange(e.target.value)}
-                        className="w-full bg-[#F8FBFA] border border-[#0C6E6D]/20 rounded-full py-4 px-6 pr-12 focus:outline-none focus:border-[#0C6E6D] text-[#053131] placeholder:text-[#053131]/30 font-bold shadow-inner"
+                        className="w-full bg-[#F8FBFA] border border-[#0C6E6D]/20 rounded-full py-4 px-6 pr-12 focus:outline-none focus:border-[#0C6E6D] text-[#053131] placeholder:text-[#053131]/30 font-semibold shadow-inner"
                     />
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#053131] rounded-full flex items-center justify-center text-white shadow-lg">
                         <Search size={18} />
@@ -49,9 +51,9 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
             </div>
 
             {/* Grid - 4 items per row on large screens */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.productName} product={product} />
                 ))}
             </div>
 
@@ -63,14 +65,14 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
                             <Search className="size-12 text-[#0C6E6D]" />
                         </div>
                         <div className="space-y-2">
-                            <h3 className="text-2xl font-black text-[#053131] uppercase tracking-tighter">No Products Match</h3>
-                            <p className="text-[#053131]/60 font-bold text-sm tracking-tight leading-relaxed">
+                            <h3 className="text-2xl font-semibold text-[#053131] uppercase tracking-tighter">No Products Match</h3>
+                            <p className="text-[#053131]/60 font-semibold text-sm tracking-tight leading-relaxed">
                                 We couldn't find any products matching your search term. Try a different keyword.
                             </p>
                         </div>
                         <button
                             onClick={() => onSearchChange('')}
-                            className="bg-[#053131] text-white px-10 py-4 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-[#0C6E6D] transition-all shadow-xl"
+                            className="bg-[#053131] text-white px-10 py-4 rounded-full font-semibold uppercase text-[10px] tracking-widest hover:bg-[#0C6E6D] transition-all shadow-xl"
                         >
                             Clear Search
                         </button>
@@ -84,7 +86,7 @@ const ProductGrid = ({ searchQuery, onSearchChange }: ProductGridProps) => {
                     {[1].map((page) => (
                         <button
                             key={page}
-                            className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black transition-all ${page === 1 ? 'bg-[#053131] text-[#7AFFC7] shadow-xl translate-y-[-4px]' : 'bg-white text-[#053131]'}`}
+                            className={`w-12 h-12 rounded-2xl flex items-center justify-center font-semibold transition-all ${page === 1 ? 'bg-[#053131] text-[#7AFFC7] shadow-xl translate-y-[-4px]' : 'bg-white text-[#053131]'}`}
                         >
                             {page}
                         </button>
