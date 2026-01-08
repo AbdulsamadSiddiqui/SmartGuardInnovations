@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaFacebookF, FaYoutube, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { RiMenu3Line, RiCloseLine, RiArrowRightLine } from 'react-icons/ri';
-import { RiWhatsappFill } from "react-icons/ri";
+import { RiMenu3Line, RiCloseLine, RiArrowRightLine, RiWhatsappFill } from 'react-icons/ri';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +14,23 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Disable body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        // Cleanup function to restore scroll on unmount
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
+
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'Product', href: '#' },
+        { name: 'Products', href: '/products' },
         { name: 'Services', href: '/services' },
         { name: 'About Us', href: '/about-us' },
         { name: 'Contact Us', href: '/contact-us' }
